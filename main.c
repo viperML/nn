@@ -14,7 +14,7 @@ int main() {
   *m_elem_at(matrix_a, 0, 0) = 3.0;
   *m_elem_at(matrix_a, 0, 1) = 2.0;
   *m_elem_at(matrix_a, 0, 2) = 1.0;
-  *m_elem_at(matrix_a, 0, 3) = -5.0;
+  *m_elem_at(matrix_a, 0, 3) = 5.0;
   *m_elem_at(matrix_a, 1, 0) = 9.0;
   *m_elem_at(matrix_a, 1, 1) = 1.0;
   *m_elem_at(matrix_a, 1, 2) = 3.0;
@@ -33,8 +33,8 @@ int main() {
   *m_elem_at(matrix_b, 2, 0) = 2.0;
   *m_elem_at(matrix_b, 2, 1) = 4.0;
   *m_elem_at(matrix_b, 2, 2) = 7.0;
-  *m_elem_at(matrix_b, 3, 0) = 1.0;
-  *m_elem_at(matrix_b, 3, 1) = 8.0;
+  *m_elem_at(matrix_b, 3, 0) = 8.0;
+  *m_elem_at(matrix_b, 3, 1) = 1.0;
   *m_elem_at(matrix_b, 3, 2) = 5.0;
   m_print(matrix_b);
 

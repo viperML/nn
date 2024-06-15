@@ -12,6 +12,6 @@ void m_print(Matrix* matrix);
 
 Matrix* m_multiply(const Matrix* a, const Matrix* b);
 
-num* m_elem_at(Matrix* matrix, int n, int m);
+num* m_elem_at(const Matrix* matrix, int n, int m);
 
 #endif

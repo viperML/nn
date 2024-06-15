@@ -10,10 +10,8 @@ struct Matrix {
   num* mem;
 };
 
-num* m_elem_at(Matrix* matrix, int m, int n) {
-  int n_max = matrix->N - 1;
-
-  return &matrix->mem[n + n_max * m];
+num* m_elem_at(const Matrix* matrix, int m, int n) {
+  return &matrix->mem[matrix->N * m + n];
 }
 
 Matrix* m_multiply(const Matrix* A, const Matrix* B) {
