@@ -2,3 +2,4 @@
 /.direnv
 /.cache
 compile_commands.json
+/data
