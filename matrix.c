@@ -11,6 +11,12 @@ struct Matrix {
 };
 
 num* m_elem_at(const Matrix* matrix, int m, int n) {
+  // Bounds check
+  if (m >= matrix->M || n >= matrix->N) {
+    errno = EINVAL;
+    return NULL;
+  }
+
   return &matrix->mem[matrix->N * m + n];
 }
 

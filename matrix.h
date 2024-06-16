@@ -6,7 +6,9 @@
 typedef struct Matrix Matrix;
 typedef double num;
 
+// Return a heap-allocated Matrix
 Matrix* m_init(int m, int n);
+// Delete a matrix created with m_init
 int m_delete(Matrix* matrix);
 void m_print(Matrix* matrix);
 

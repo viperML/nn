@@ -15,4 +15,6 @@ add_executable(${PROJECT_NAME}
     matrix.c
 )
 
+target_link_libraries(${PROJECT_NAME} m)
+
 install(TARGETS ${PROJECT_NAME})
