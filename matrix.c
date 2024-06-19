@@ -22,6 +22,7 @@ num* m_elem_at(const Matrix* matrix, int row, int col) {
 
 Matrix* m_multiply(const Matrix* A, const Matrix* B) {
   if (A->cols != B->rows) {
+    printf("Failed to multily: %d, %d\n", A->cols, B->rows);
     errno = EINVAL;
     return NULL;
   }
@@ -76,6 +77,7 @@ void m_print(Matrix* matrix) {
   //   printf("Matrix<%dx%d> too big to display!\n", matrix->M, matrix->N);
   //   return;
   // }
+  printf("Matrix <%dx%d>\n", matrix->rows, matrix->cols);
 
   for (int row = 0; row < matrix->rows; row++) {
     for (int col = 0; col < matrix->cols; col++) {

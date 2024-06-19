@@ -1,4 +1,5 @@
 #include <byteswap.h>
+#include <limits.h>
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -9,7 +10,9 @@
 
 #define unwrap(ptr)                                                            \
   if (ptr == NULL) {                                                           \
-    perror("Failed to init");                                                  \
+    char* s;                                                                   \
+    asprintf(&s, "Failed to init @ %s:%d", __FILE__, __LINE__);                \
+    perror(s);                                                                 \
     exit(EXIT_FAILURE);                                                        \
   };
 
@@ -18,12 +21,12 @@ double sig(double x) {
   return exponent / (1 + exponent);
 }
 
-num fill_random(int i, int j) { return sig(random()); }
+num fill_stuff(int i, int j) { return sig(i); }
 
 #define fread_or_exit(ptr, size, nmemb, stream)                                \
   {                                                                            \
     size_t b_read = fread(ptr, size, nmemb, stream);                           \
-    if (b_read != ((size) * (nmemb))) {                                        \
+    if (b_read != ((nmemb))) {                                                 \
       printf("Failed to read from file! @ %s:%d\n", __FILE__, __LINE__);       \
       exit(EXIT_FAILURE);                                                      \
     }                                                                          \
@@ -71,7 +74,7 @@ int main(int argc, char** argv) {
   Matrix* N_2 = m_init(18, 1);
   Matrix* N_3 = m_init(10, 1);
 
-  Matrix* W_1 = m_init(28 * 28, 18);
+  Matrix* W_1 = m_init(18, 28 * 28);
   Matrix* W_2 = m_init(18, 18);
   Matrix* W_3 = m_init(18, 10);
 
@@ -89,9 +92,12 @@ int main(int argc, char** argv) {
   }
 
   m_print(N_0);
-  m_fill(W_1, fill_random);
+  m_fill(W_1, fill_stuff);
+  m_print(W_1);
 
   Matrix* res = m_multiply(W_1, N_0);
+  unwrap(res);
+  m_print(res);
 
   return EXIT_SUCCESS;
 }
