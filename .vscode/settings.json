@@ -1,0 +1,14 @@
+{
+    "clangd.arguments": [
+        "--clang-tidy",
+        "--clang-tidy-checks=*",
+        "--background-index",
+        "-j=6",
+        "--all-scopes-completion",
+        "--cross-file-rename",
+        "--completion-style=detailed",
+        "--header-insertion-decorators",
+        "--header-insertion=iwyu",
+        "--pch-storage=memory",
+    ]
+}
